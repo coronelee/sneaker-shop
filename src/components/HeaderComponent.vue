@@ -1,9 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-import CardComponent from './CardComponent.vue'
+import CartComponent from './CartComponent.vue'
+defineProps({
+  cartItems: Array,
+  deleteCartItems: Function
+})
 const showCard = ref(false)
 
-const cardItems = ref(['sdf', 'awsd', 'qqqq'])
 const toggleCard = () => {
   showCard.value = !showCard.value
 }
@@ -23,7 +26,7 @@ const toggleCard = () => {
     >
       <div class="font-bold text-3xl family-sans">SneakMax</div>
       <div class="flex gap-4 [&>span]:cursor-pointer [&>span]:transition">
-        <span class="hover:text-[#F14F4F]">Каталог</span>
+        <span class="hover:text-[#F14F4F]" @scroll="">Каталог</span>
         <span class="hover:text-[#F14F4F]">О нас</span>
         <span class="hover:text-[#F14F4F]">Подбор товара</span>
         <span class="hover:text-[#F14F4F]">Наша команда</span>
@@ -43,5 +46,11 @@ const toggleCard = () => {
       <button class="w-[250px] h-[60px] bg-[#F14F4F] rounded">Перейти к покупкам</button>
     </div>
   </header>
-  <component v-if="showCard" :is="CardComponent" :cardItems="cardItems" :toggleCard="toggleCard" />
+  <component
+    v-if="showCard"
+    :is="CartComponent"
+    :cartItems="cartItems"
+    :toggleCard="toggleCard"
+    :deleteCartItems="deleteCartItems"
+  />
 </template>
