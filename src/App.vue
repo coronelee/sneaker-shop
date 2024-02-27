@@ -6,6 +6,8 @@ import TestComponent from './components/TestComponent.vue'
 import TeamComponent from './components/TeamComponent.vue'
 import QuestionsComponent from './components/QuestionsComponent.vue'
 import ContactsComponent from './components/ContactsComponent.vue'
+import FeedBack from './components/FeedBack.vue'
+import Footer from './components/Footer.vue'
 import { ref } from 'vue'
 
 const cartItems = ref([])
@@ -27,5 +29,7 @@ const deleteCartItems = (item) => {
     <TeamComponent />
     <QuestionsComponent />
     <ContactsComponent />
+    <FeedBack />
+    <Footer />
   </h1>
 </template>

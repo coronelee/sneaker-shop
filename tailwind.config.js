@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       animation: {
-        succ: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 }
+        addCart: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' }
         }
       }
     }

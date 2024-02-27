@@ -15,7 +15,7 @@ const editResultPrice = () => {
 </script>
 <template>
   <div
-    class="h-screen w-screen bg-[#444B58B2] z-30 absolute top-0 left-0 flex justify-center items-center transition-all duration-300 overflow-y-hidden no-scrollbar"
+    class="h-screen w-screen bg-[#444B58B2] z-40 absolute top-0 left-0 flex justify-center items-center transition-all duration-300 overflow-y-hidden no-scrollbar"
   >
     <div class="w-auto h-auto bg-white p-10 rounded">
       <div v-if="cartItems.length === 0" class="flex flex-col justify-center align-center">

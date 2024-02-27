@@ -1,7 +1,7 @@
 <template>
-  <div class="w-screen h-[620px] bg-[#F3F6F6] flex justify-center items-center">
-    <div class="w-[1180px] h-full flex justify-center items-center [&>div]:w-1/2">
-      <div class="flex flex-col gap-5">
+  <div class="w-screen h-auto py-10 bg-[#F3F6F6] flex justify-center items-center">
+    <div class="w-[1180px] px-10 h-full flex justify-center items-center max-md:w-full">
+      <div class="flex flex-col gap-5 max-md:w-screen">
         <span class="text-3xl font-bold text-[#444B58]">Контакты</span
         ><span class="text-[#B2B5BB] flex gap-5 justify-start align-center">
           <span>главный офис</span>
@@ -22,8 +22,8 @@
           <button class="w-10 h-10"><img src="/Instagram.svg" alt="" /></button>
         </div>
       </div>
-      <div>
-        <img src="/map.png" alt="" class="w-full h-full" />
+      <div class="w-1/2">
+        <img src="/map.png" alt="" class="w-full h-full max-md:hidden" />
       </div>
     </div>
   </div>

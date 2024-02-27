@@ -111,49 +111,54 @@ const selectSize = (event) => {
 <template>
   <div class="w-screen flex justify-center items-center h-auto">
     <div class="w-[1180px] h-auto">
-      <h1 class="w-full text-3xl mt-10 mb-10">Каталог</h1>
-      <div class="flex gap-5 text-[#444B58]">
-        <div class="w-1/4 bg-[#FFF4EE] flex-col flex p-5 h-[450px]">
-          <span>Подбор по параметрам</span> <span>Цена руб.</span>
-          <div
-            class="flex [&>input]:w-1/2 gap-5 [&>input]:bg-transparent [&>input]:outline-none [&>input]:border"
-          >
-            <input
-              type="text"
-              @input="(minPrice = $event.target.value), filter()"
-              :defaultValue="minPrice"
-            />-
-            <input
-              type="text"
-              @input="(maxPrice = $event.target.value), filter()"
-              :defaultValue="maxPrice"
-            />
-          </div>
-          <span>Пол</span>
-          <!-- [&>div>input]:outline-none [&>div>input]:appearance-none -->
-          <div
-            class="flex justify-between [&>div>input]:w-4 [&>div>input]:h-4 [&>div>input]:cursor-pointer [&>div>input]:rounded-full [&>div>input]:border [&>div>input]:border-[#DBBBA9]"
-          >
-            <div>
-              <input type="checkbox" @click="selectGenders('male'), filter()" checked /> Мужской
-            </div>
-            <div>
-              <input type="checkbox" @click="selectGenders('female'), filter()" checked /> Женский
-            </div>
-          </div>
-          <span>Размер</span>
-          <div class="grid gap-1 grid-cols-3">
-            <span
-              v-for="s in size"
-              :key="s"
-              @click="selectSize($event), filter()"
-              :id="s"
-              class="cursor-pointer transition border flex justify-center items-center border-[#DBBBA9] p-5 bg-[#F14F4F1a]"
-              >{{ s }}</span
+      <h1 class="w-full text-3xl mt-10 mb-10 max-xl:px-10">Каталог</h1>
+      <div class="flex gap-5 text-[#444B58] max-xl:flex-col max-xl:px-10">
+        <div
+          class="w-1/4 bg-[#FFF4EE] flex-col flex p-5 h-auto max-h-[450px] max-xl:flex-row max-xl:w-[500px] max-xl:gap-5 max-[580px]:flex-col max-[580px]:w-[300px] max-[580px]:max-h-[600px] max-[380px]:w-full"
+        >
+          <div class="flex flex-col">
+            <span>Подбор по параметрам</span> <span>Цена руб.</span>
+            <div
+              class="flex [&>input]:w-1/2 gap-5 [&>input]:bg-transparent [&>input]:outline-none [&>input]:border max-xl:flex-col max-xl:[&>input]:w-full"
             >
+              <input
+                type="text"
+                @input="(minPrice = $event.target.value), filter()"
+                :defaultValue="minPrice"
+              />
+              <input
+                type="text"
+                @input="(maxPrice = $event.target.value), filter()"
+                :defaultValue="maxPrice"
+              />
+            </div>
+            <span>Пол</span>
+            <div
+              class="flex justify-between [&>div>input]:w-4 [&>div>input]:h-4 [&>div>input]:cursor-pointer [&>div>input]:rounded-full [&>div>input]:border [&>div>input]:border-[#DBBBA9]"
+            >
+              <div>
+                <input type="checkbox" @click="selectGenders('male'), filter()" checked /> Мужской
+              </div>
+              <div>
+                <input type="checkbox" @click="selectGenders('female'), filter()" checked /> Женский
+              </div>
+            </div>
+          </div>
+          <div>
+            <span>Размер</span>
+            <div class="grid gap-1 grid-cols-3">
+              <span
+                v-for="s in size"
+                :key="s"
+                @click="selectSize($event), filter()"
+                :id="s"
+                class="cursor-pointer transition border flex justify-center items-center border-[#DBBBA9] p-5 bg-[#F14F4F1a]"
+                >{{ s }}</span
+              >
+            </div>
           </div>
           <button
-            class="bg-[#444B58] text-white h-[50px] rounded mt-5"
+            class="bg-[#444B58] text-white h-[50px] rounded mt-5 px-5 hover:brightness-90"
             @click="
               (filteredItems = sneakers),
                 (selectedSize = ['35', '36', '37', '38', '39', '40', '41', '42', '43']),
@@ -166,7 +171,7 @@ const selectSize = (event) => {
             Сбросить
           </button>
         </div>
-        <div class="w-3/4 grid grid-cols-3 gap-5">
+        <div class="w-3/4 grid grid-cols-3 gap-5 max-xl:w-full max-[580px]:grid-cols-2">
           <span
             v-for="s in filteredItems"
             :key="s"
@@ -175,7 +180,7 @@ const selectSize = (event) => {
             <img
               src="/add-cart.svg"
               alt=""
-              class="absolute top-5 left-5 w-10 h-10 cursor-pointer"
+              class="absolute top-5 left-5 w-1/6 h-1/6 cursor-pointer"
               @click="addCartItems(s)"
             />
             <img :src="s.img" alt="sneaker" class="w-full" />
